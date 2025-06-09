@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nabilah-guestbook
+  name: nabs-guestbook-ui
   namespace: argocd  # Namespace where ArgoCD is installed
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/NuttyNabby/guestbook.git'  # 🔁 Change this
+    repoURL: 'https://github.com/NuttyNabby/guestbook.git'  # 🔁 Replace this
     targetRevision: main
-    path: applications # 🔁 Change if not in repo root
+    path: applications
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: nabilah-ns  # 🔁 Replace with your actual namespace
+    namespace: nabilah-ns  # 🔁 Replace with your namespace (must exist)
   syncPolicy:
     automated:
       prune: true
